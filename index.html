@@ -5,100 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>锦泓集团供应链中心知识库</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-            background: #f0f2f5;
+            background: #f4f5f7;
             color: #1a1a2e;
-            line-height: 1.6;
+            line-height: 1.4;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 540px;
             margin: 0 auto;
-            padding: 24px 16px;
+            padding: 14px 12px;
         }
 
         /* Header */
         .header {
             text-align: center;
-            margin-bottom: 28px;
-            padding: 24px 20px;
+            margin-bottom: 14px;
+            padding: 14px 12px;
             background: linear-gradient(135deg, #1a365d 0%, #2563eb 100%);
-            border-radius: 12px;
+            border-radius: 8px;
             color: #fff;
-            box-shadow: 0 2px 12px rgba(37, 99, 235, 0.12);
+            box-shadow: 0 1px 6px rgba(37, 99, 235, 0.1);
         }
 
         .header h1 {
-            font-size: 22px;
+            font-size: 15px;
             font-weight: 700;
-            margin-bottom: 6px;
-            letter-spacing: 0.5px;
+            margin-bottom: 4px;
         }
 
         .header p {
-            font-size: 13px;
-            opacity: 0.8;
-            max-width: 500px;
-            margin: 0 auto;
+            font-size: 11px;
+            opacity: 0.75;
         }
 
         .header .stats {
             display: flex;
             justify-content: center;
-            gap: 28px;
-            margin-top: 14px;
+            gap: 16px;
+            margin-top: 8px;
             flex-wrap: wrap;
         }
 
-        .header .stat-item {
-            text-align: center;
-        }
+        .header .stat-item { text-align: center; }
 
         .header .stat-number {
-            font-size: 22px;
+            font-size: 15px;
             font-weight: 700;
             display: block;
         }
 
         .header .stat-label {
-            font-size: 11px;
-            opacity: 0.7;
-            margin-top: 2px;
+            font-size: 10px;
+            opacity: 0.65;
         }
 
         /* Card Grid */
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 16px;
-            margin-bottom: 32px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 10px;
+            margin-bottom: 16px;
         }
 
         .card {
             background: #fff;
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             display: flex;
             flex-direction: column;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
         }
 
         .card-banner {
-            height: 8px;
+            height: 4px;
             width: 100%;
         }
 
@@ -109,21 +99,21 @@
         .card-banner.teal { background: linear-gradient(90deg, #0d9488, #14b8a6); }
 
         .card-body {
-            padding: 20px 18px;
+            padding: 10px;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
 
         .card-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            margin-bottom: 12px;
+            font-size: 14px;
+            margin-bottom: 6px;
         }
 
         .card-icon.blue { background: #eff6ff; }
@@ -133,25 +123,25 @@
         .card-icon.teal { background: #f0fdfa; }
 
         .card-title {
-            font-size: 17px;
+            font-size: 13px;
             font-weight: 600;
             color: #1a1a2e;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .card-desc {
-            font-size: 13px;
+            font-size: 11px;
             color: #64748b;
-            margin-bottom: 16px;
+            margin-bottom: 8px;
             flex: 1;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .card-meta {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding-top: 14px;
+            gap: 6px;
+            padding-top: 8px;
             border-top: 1px solid #f1f5f9;
             flex-wrap: wrap;
         }
@@ -159,12 +149,13 @@
         .card-tag {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-            font-size: 12px;
-            padding: 4px 10px;
-            border-radius: 20px;
+            gap: 2px;
+            font-size: 10px;
+            padding: 2px 7px;
+            border-radius: 10px;
             background: #f8fafc;
             color: #475569;
+            white-space: nowrap;
         }
 
         .card-tag.views {
@@ -180,72 +171,44 @@
         .card-link {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 3px;
             margin-left: auto;
-            font-size: 14px;
+            font-size: 11px;
             font-weight: 500;
             color: #2563eb;
             text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 8px;
+            padding: 4px 8px;
+            border-radius: 6px;
             background: #eff6ff;
             transition: background 0.2s ease;
         }
 
-        .card-link:hover {
-            background: #dbeafe;
-        }
+        .card-link:hover { background: #dbeafe; }
 
         .card-link::after {
             content: "→";
-            transition: transform 0.2s ease;
-        }
-
-        .card-link:hover::after {
-            transform: translateX(3px);
+            font-size: 10px;
         }
 
         /* Footer */
         .footer {
             text-align: center;
-            padding: 24px;
+            padding: 10px;
             color: #94a3b8;
-            font-size: 13px;
-            border-top: 1px solid #e2e8f0;
-            margin-top: 24px;
+            font-size: 11px;
         }
 
-        .footer span {
-            color: #2563eb;
-            font-weight: 500;
+        .footer span { color: #2563eb; font-weight: 500; }
+
+        .footer .update-time {
+            margin-top: 3px;
+            font-size: 10px;
+            opacity: 0.6;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px 16px;
-            }
-
-            .header {
-                padding: 32px 16px;
-            }
-
-            .header h1 {
-                font-size: 24px;
-            }
-
-            .header .stats {
-                gap: 24px;
-            }
-
-            .card-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .card-body {
-                padding: 20px;
-            }
+        @media (max-width: 500px) {
+            .card-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -254,19 +217,15 @@
         <!-- Header -->
         <div class="header">
             <h1>📚 锦泓集团供应链中心知识库</h1>
-            <p>集中管理供应链中心各类知识资产，涵盖行业洞察、专业术语、流程规范等核心知识体系</p>
+            <p>行业洞察 · 专业术语 · 流程规范</p>
             <div class="stats">
                 <div class="stat-item">
-                    <span class="stat-number">3</span>
-                    <span class="stat-label">知识库总数</span>
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">知识库</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">59</span>
                     <span class="stat-label">收录条目</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">持续更新</span>
-                    <span class="stat-label">维护状态</span>
                 </div>
             </div>
         </div>
@@ -280,15 +239,13 @@
                 <div class="card-body">
                     <div class="card-icon blue">🤖</div>
                     <h2 class="card-title">纺织服装行业 AI 与数字化转型</h2>
-                    <p class="card-desc">
-                        持续追踪纺织服装行业智能化进程，汇集贝恩、麦肯锡、Gartner、德勤、BCG 五大咨询机构最新洞察报告，以及 SHEIN、优衣库、Zara 等头部企业的产业落地案例与前沿技术应用实践。
-                    </p>
+                    <p class="card-desc">持续追踪行业智能化进程，汇集贝恩、麦肯锡、Gartner、德勤、BCG 五大机构洞察，以及 SHEIN、优衣库、Zara 等头部企业落地案例。</p>
                     <div class="card-meta">
-                        <span class="card-tag">📋 8 条知识</span>
-                        <span class="card-tag views">👁️ 总浏览: 0</span>
-                        <span class="card-tag recent">📊 近14天: 0</span>
-                        <span class="card-tag">🕐 2026-07-25</span>
-                        <a class="card-link" href="https://jovienne0913.github.io/textile-ai-knowledge/" target="_blank">进入知识库</a>
+                        <span class="card-tag">📋 8 条</span>
+                        <span class="card-tag views">👁️ 0</span>
+                        <span class="card-tag recent">📊 14天: 0</span>
+                        <span class="card-tag">🕐 07-25</span>
+                        <a class="card-link" href="https://jovienne0913.github.io/textile-ai-knowledge/" target="_blank">进入</a>
                     </div>
                 </div>
             </div>
@@ -299,48 +256,43 @@
                 <div class="card-body">
                     <div class="card-icon green">📖</div>
                     <h2 class="card-title">锦泓集团供应链中心术语库</h2>
-                    <p class="card-desc">
-                        供应链中心专属术语知识库，覆盖组织架构、系统与数据管理、生产采购管理、技术与质量管理等 8 大一级分类，统一术语定义与使用规范，助力跨部门高效沟通与业务标准化。
-                    </p>
+                    <p class="card-desc">供应链中心专属术语知识库，覆盖组织架构、系统与数据、生产采购、技术质量等 8 大一级分类，统一术语规范。</p>
                     <div class="card-meta">
-                        <span class="card-tag">📋 51 条术语</span>
-                        <span class="card-tag views">👁️ 总浏览: 0</span>
-                        <span class="card-tag recent">📊 近14天: 0</span>
-                        <span class="card-tag">🕐 2026-07-17</span>
-                        <a class="card-link" href="https://jovienne0913.github.io/jinhong-glossary/" target="_blank">进入知识库</a>
+                        <span class="card-tag">📋 51 条</span>
+                        <span class="card-tag views">️ 0</span>
+                        <span class="card-tag recent">📊 14天: 0</span>
+                        <span class="card-tag">🕐 07-17</span>
+                        <a class="card-link" href="https://jovienne0913.github.io/jinhong-glossary/" target="_blank">进入</a>
                     </div>
                 </div>
             </div>
 
             <!-- 
             ===== 新增知识库卡片模板 =====
-            复制以下模板，修改内容后粘贴到此处即可
-
             <div class="card">
                 <div class="card-banner purple"></div>
                 <div class="card-body">
-                    <div class="card-icon purple">📌</div>
+                    <div class="card-icon purple"></div>
                     <h2 class="card-title">知识库名称</h2>
-                    <p class="card-desc">
-                        知识库简介描述文字。
-                    </p>
+                    <p class="card-desc">简介描述。</p>
                     <div class="card-meta">
-                        <span class="card-tag">📋 N 条记录</span>
-                        <span class="card-tag">🕐 YYYY-MM-DD</span>
-                        <a class="card-link" href="https://jovienne0913.github.io/xxx/" target="_blank">进入知识库</a>
+                        <span class="card-tag">📋 N 条</span>
+                        <span class="card-tag views">👁️ 0</span>
+                        <span class="card-tag recent">📊 14天: 0</span>
+                        <span class="card-tag">🕐 MM-DD</span>
+                        <a class="card-link" href="https://jovienne0913.github.io/xxx/" target="_blank">进入</a>
                     </div>
                 </div>
             </div>
-
-            可选 banner/icon 颜色：blue, green, purple, orange, teal
+            可选颜色：blue, green, purple, orange, teal
             -->
 
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <p>锦泓集团供应链中心 · 知识库导航 · 由 <span>Jovienne的一号牛马</span> 维护更新</p>
-            <p style="margin-top: 6px; font-size: 11px; opacity: 0.7;">流量数据更新于 2026-07-25</p>
+            <p>锦泓集团供应链中心 · 由 <span>Jovienne的一号牛马</span> 维护</p>
+            <p class="update-time">流量数据更新于 2026-07-25</p>
         </div>
     </div>
 </body>
