@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>锦泓集团供应链中心知识库</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: #f0f2f5;
+            color: #1a1a2e;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding: 48px 24px;
+            background: linear-gradient(135deg, #1a365d 0%, #2563eb 100%);
+            border-radius: 16px;
+            color: #fff;
+            box-shadow: 0 4px 24px rgba(37, 99, 235, 0.15);
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .header .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 28px;
+            flex-wrap: wrap;
+        }
+
+        .header .stat-item {
+            text-align: center;
+        }
+
+        .header .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            display: block;
+        }
+
+        .header .stat-label {
+            font-size: 13px;
+            opacity: 0.75;
+            margin-top: 4px;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-banner {
+            height: 8px;
+            width: 100%;
+        }
+
+        .card-banner.blue { background: linear-gradient(90deg, #2563eb, #3b82f6); }
+        .card-banner.green { background: linear-gradient(90deg, #059669, #10b981); }
+        .card-banner.purple { background: linear-gradient(90deg, #7c3aed, #8b5cf6); }
+        .card-banner.orange { background: linear-gradient(90deg, #ea580c, #f97316); }
+        .card-banner.teal { background: linear-gradient(90deg, #0d9488, #14b8a6); }
+
+        .card-body {
+            padding: 28px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .card-icon.blue { background: #eff6ff; }
+        .card-icon.green { background: #ecfdf5; }
+        .card-icon.purple { background: #f5f3ff; }
+        .card-icon.orange { background: #fff7ed; }
+        .card-icon.teal { background: #f0fdfa; }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 20px;
+            flex: 1;
+            line-height: 1.7;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #f1f5f9;
+            flex-wrap: wrap;
+        }
+
+        .card-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: #f8fafc;
+            color: #475569;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-left: auto;
+            font-size: 14px;
+            font-weight: 500;
+            color: #2563eb;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: #eff6ff;
+            transition: background 0.2s ease;
+        }
+
+        .card-link:hover {
+            background: #dbeafe;
+        }
+
+        .card-link::after {
+            content: "→";
+            transition: transform 0.2s ease;
+        }
+
+        .card-link:hover::after {
+            transform: translateX(3px);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: #94a3b8;
+            font-size: 13px;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 24px;
+        }
+
+        .footer span {
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 16px;
+            }
+
+            .header {
+                padding: 32px 16px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .header .stats {
+                gap: 24px;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .card-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📚 锦泓集团供应链中心知识库</h1>
+            <p>集中管理供应链中心各类知识资产，涵盖行业洞察、专业术语、流程规范等核心知识体系</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">知识库总数</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">59</span>
+                    <span class="stat-label">收录条目</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">持续更新</span>
+                    <span class="stat-label">维护状态</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Knowledge Base Cards -->
+        <div class="card-grid">
+
+            <!-- Card 1: 纺织服装行业AI与数字化转型 -->
+            <div class="card">
+                <div class="card-banner blue"></div>
+                <div class="card-body">
+                    <div class="card-icon blue">🤖</div>
+                    <h2 class="card-title">纺织服装行业 AI 与数字化转型</h2>
+                    <p class="card-desc">
+                        持续追踪纺织服装行业智能化进程，汇集贝恩、麦肯锡、Gartner、德勤、BCG 五大咨询机构最新洞察报告，以及 SHEIN、优衣库、Zara 等头部企业的产业落地案例与前沿技术应用实践。
+                    </p>
+                    <div class="card-meta">
+                        <span class="card-tag">📋 8 条知识</span>
+                        <span class="card-tag">🕐 2026-07-25</span>
+                        <a class="card-link" href="https://jovienne0913.github.io/textile-ai-knowledge/" target="_blank">进入知识库</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: 锦泓集团供应链中心术语库 -->
+            <div class="card">
+                <div class="card-banner green"></div>
+                <div class="card-body">
+                    <div class="card-icon green">📖</div>
+                    <h2 class="card-title">锦泓集团供应链中心术语库</h2>
+                    <p class="card-desc">
+                        供应链中心专属术语知识库，覆盖组织架构、系统与数据管理、生产采购管理、技术与质量管理等 8 大一级分类，统一术语定义与使用规范，助力跨部门高效沟通与业务标准化。
+                    </p>
+                    <div class="card-meta">
+                        <span class="card-tag">📋 51 条术语</span>
+                        <span class="card-tag">🕐 2026-07-17</span>
+                        <a class="card-link" href="https://jovienne0913.github.io/jinhong-glossary/" target="_blank">进入知识库</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 
+            ===== 新增知识库卡片模板 =====
+            复制以下模板，修改内容后粘贴到此处即可
+
+            <div class="card">
+                <div class="card-banner purple"></div>
+                <div class="card-body">
+                    <div class="card-icon purple">📌</div>
+                    <h2 class="card-title">知识库名称</h2>
+                    <p class="card-desc">
+                        知识库简介描述文字。
+                    </p>
+                    <div class="card-meta">
+                        <span class="card-tag">📋 N 条记录</span>
+                        <span class="card-tag">🕐 YYYY-MM-DD</span>
+                        <a class="card-link" href="https://jovienne0913.github.io/xxx/" target="_blank">进入知识库</a>
+                    </div>
+                </div>
+            </div>
+
+            可选 banner/icon 颜色：blue, green, purple, orange, teal
+            -->
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>锦泓集团供应链中心 · 知识库导航 · 由 <span>Jovienne的一号牛马</span> 维护更新</p>
+        </div>
+    </div>
+</body>
+</html>
