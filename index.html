@@ -5,133 +5,109 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>锦泓集团供应链中心知识库</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
-    background: linear-gradient(135deg, #f0f7ff 0%, #e6f1fb 50%, #f8fafc 100%);
-    min-height: 100vh;
-    color: #1a202c;
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --brand-900:#0B2E59;--brand-700:#14489E;--brand-600:#2563EB;--brand-500:#3B82F6;
+    --brand-100:#EFF4FF;
+    --ink-900:#0F172A;--ink-700:#334155;--ink-500:#64748B;--ink-400:#94A3B8;
+    --line:#E6EDF6;--surface:#fff;--bg:#F4F7FC;
+    --r-lg:16px;--r-md:12px;--r-pill:999px;
+    --sh-sm:0 1px 3px rgba(15,23,42,.06);--sh-md:0 10px 28px rgba(15,23,42,.10);--sh-lg:0 20px 50px rgba(15,23,42,.14);
+    --sh-brand:0 12px 30px rgba(37,99,235,.30);
+    --ease:cubic-bezier(.4,0,.2,1);
   }
-  .container { max-width: 1080px; margin: 0 auto; padding: 72px 24px 48px; }
-  .topbar { height: 5px; background: linear-gradient(90deg, #1d4ed8, #378add); }
-  .header { text-align: center; margin-bottom: 48px; }
-  .header h1 {
-    font-size: 34px; font-weight: 700; color: #0c447c;
-    margin-bottom: 12px; letter-spacing: -0.5px;
-  }
-  .header p {
-    font-size: 16px; color: #64748b; max-width: 620px;
-    margin: 0 auto; line-height: 1.7;
-  }
-  .badge {
-    display: inline-block; padding: 5px 14px; background: #e6f1fb;
-    color: #185fa5; border-radius: 20px; font-size: 12px;
-    font-weight: 500; margin-bottom: 18px;
-  }
-  .features {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 22px; margin-bottom: 44px;
-  }
-  .feat {
-    background: #fff; border-radius: 16px; padding: 28px 26px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
-    border: 1px solid #e2e8f0; position: relative; overflow: hidden;
-    transition: transform .3s ease, box-shadow .3s ease;
-  }
-  .feat::before {
-    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
-    background: linear-gradient(90deg, #185fa5, #378add);
-  }
-  .feat:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.08); }
-  .feat-ico { font-size: 32px; margin-bottom: 14px; line-height: 1; }
-  .feat h3 { font-size: 17px; font-weight: 600; color: #0c447c; margin-bottom: 8px; }
-  .feat p { font-size: 13.5px; color: #64748b; line-height: 1.65; }
-  .feat.feat-link {
-    text-decoration: none; color: inherit; display: block;
-  }
-  .feat-go {
-    display: inline-block; margin-top: 14px; font-size: 13.5px;
-    color: #1d4ed8; font-weight: 600; transition: transform .2s ease;
-  }
-  .feat.feat-link:hover .feat-go { transform: translateX(4px); }
-  .cta-wrap { text-align: center; }
-  .cta {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 16px 40px; border: none; border-radius: 12px; cursor: pointer;
-    background: linear-gradient(135deg, #1d4ed8, #2563eb); color: #fff;
-    font-size: 17px; font-weight: 600; font-family: inherit;
-    transition: transform .15s ease, box-shadow .15s ease;
-    text-decoration: none;
-  }
-  .cta:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(37,99,235,.4); }
-  .cta:focus-visible { outline: 3px solid #fff; outline-offset: 3px; box-shadow: 0 0 0 5px rgba(37,99,235,.5); }
-  .cta .arrow { font-size: 20px; transition: transform .2s ease; }
-  .cta:hover .arrow { transform: translateX(4px); }
-  .note {
-    margin: 22px auto 0; max-width: 520px; font-size: 13px; color: #94a3b8;
-    line-height: 1.7; text-align: center;
-  }
-  .note b { color: #1d4ed8; }
-  .footer {
-    text-align: center; padding: 40px 0 8px; margin-top: 36px;
-    border-top: 1px solid #e2e8f0;
-  }
-  .footer p { font-size: 12.5px; color: #94a3b8; line-height: 1.8; }
-  @media (max-width:480px){ .container{padding:48px 18px 32px;} .header h1{font-size:27px;} }
+  body{font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink-900);background:var(--bg);min-height:100vh;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;}
+  /* 顶部品牌导航 */
+  .topnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  .topnav-in{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--brand-900);font-size:16px;}
+  .brand-logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--brand-500),var(--brand-700));display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:var(--sh-brand);}
+  .nav-badge{font-size:12px;font-weight:600;color:var(--brand-700);background:var(--brand-100);border:1px solid #D6E4FB;border-radius:var(--r-pill);padding:5px 12px;}
+  /* 英雄区 */
+  .hero{position:relative;max-width:1080px;margin:0 auto;padding:74px 24px 36px;text-align:center;}
+  .hero::before{content:"";position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:720px;height:360px;background:radial-gradient(closest-side,rgba(37,99,235,.10),transparent);z-index:-1;pointer-events:none;}
+  .hero-badge{display:inline-block;font-size:12.5px;font-weight:600;color:var(--brand-700);background:var(--brand-100);border:1px solid #D6E4FB;border-radius:var(--r-pill);padding:6px 14px;margin-bottom:20px;}
+  .hero h1{font-size:38px;font-weight:800;color:var(--brand-900);letter-spacing:-.5px;margin-bottom:16px;}
+  .hero-sub{font-size:16px;color:var(--ink-500);max-width:620px;margin:0 auto 28px;line-height:1.75;}
+  .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:var(--r-md);background:linear-gradient(135deg,var(--brand-500),var(--brand-700));color:#fff;font-weight:600;font-size:15px;box-shadow:var(--sh-brand);transition:transform .15s var(--ease),box-shadow .15s var(--ease);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(37,99,235,.4);}
+  .btn-primary:focus-visible{outline:3px solid #fff;outline-offset:2px;}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:var(--r-md);background:#fff;color:var(--brand-700);font-weight:600;font-size:15px;border:1.5px solid var(--line);transition:border-color .15s,transform .15s var(--ease);}
+  .btn-ghost:hover{border-color:var(--brand-500);transform:translateY(-2px);}
+  .btn-ghost:focus-visible{outline:3px solid var(--brand-500);outline-offset:2px;}
+  /* 模块网格 */
+  .modules{max-width:1080px;margin:0 auto;padding:12px 24px 44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
+  .mod{position:relative;display:block;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px 26px;overflow:hidden;box-shadow:var(--sh-sm);transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s;}
+  .mod::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--brand-500),var(--brand-700));transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease);}
+  .mod:hover{transform:translateY(-5px);box-shadow:var(--sh-md);border-color:#D6E4FB;}
+  .mod:hover::before{transform:scaleX(1);}
+  .mod:focus-visible{outline:3px solid var(--brand-500);outline-offset:2px;}
+  .mod-ico{width:52px;height:52px;border-radius:14px;background:var(--brand-100);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:16px;transition:background .25s;}
+  .mod:hover .mod-ico{background:linear-gradient(135deg,var(--brand-500),var(--brand-700));}
+  .mod h3{font-size:17px;font-weight:700;color:var(--brand-900);margin-bottom:8px;}
+  .mod p{font-size:13.5px;color:var(--ink-500);line-height:1.65;}
+  .mod-go{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13.5px;font-weight:600;color:var(--brand-600);transition:gap .2s var(--ease);}
+  .mod:hover .mod-go{gap:10px;}
+  /* 页脚 */
+  .foot{text-align:center;padding:36px 24px;border-top:1px solid var(--line);color:var(--ink-400);font-size:12.5px;line-height:1.8;}
+  @media(max-width:480px){.hero{padding-top:48px;}.hero h1{font-size:30px;}.hero-sub{font-size:15px;}}
 </style>
 </head>
 <body>
-<div class="topbar"></div>
-<div class="container">
-  <div class="header">
-    <span class="badge">供应链中心</span>
-    <h1>锦泓集团供应链中心知识库</h1>
-    <p>面向供应链中心的知识沉淀平台，汇集行业洞察、产业案例与专业术语，赋能数字化转型与业务决策。</p>
+<header class="topnav">
+  <div class="topnav-in">
+    <a class="brand" href="https://jovienne0913.github.io/supply-chain-knowledge-hub/"><span class="brand-logo">📚</span> 锦泓供应链知识库</a>
+    <span class="nav-badge">内部平台</span>
   </div>
+</header>
 
-  <div class="features">
-    <a class="feat feat-link" href="https://jovienne0913.github.io/textile-ai-knowledge/" target="_blank" rel="noopener">
-      <div class="feat-ico">📚</div>
-      <h3>纺织 / 服装 AI 行业洞察</h3>
-      <p>持续追踪行业智能化进程，汇集贝恩、麦肯锡、Gartner、德勤、BCG 五大机构洞察，以及 SHEIN、优衣库、Zara 等头部企业落地案例。</p>
-      <span class="feat-go">进入 →</span>
-    </a>
-    <a class="feat feat-link" href="https://jovienne0913.github.io/jinhong-glossary/" target="_blank" rel="noopener">
-      <div class="feat-ico">📖</div>
-      <h3>供应链中心 · 术语表</h3>
-      <p>供应链中心专属术语知识库，覆盖组织架构、系统与数据、生产采购、技术质量等 8 大一级分类，统一术语规范。</p>
-      <span class="feat-go">进入 →</span>
-    </a>
-    <a class="feat feat-link" href="https://jovienne0913.github.io/supply-chain-knowledge-hub/reports/202607.html" target="_blank" rel="noopener">
-      <div class="feat-ico">📊</div>
-      <h3>机会点洞察月度报告</h3>
-      <p>供应链中心月度运营报告，汇集关键指标分析与业务洞察，助力决策复盘与持续改进。</p>
-      <span class="feat-go">进入 →</span>
-    </a>
-    <a class="feat feat-link" href="https://jovienne0913.github.io/jinhong-quality-standards/" target="_blank" rel="noopener">
-      <div class="feat-ico">📏</div>
-      <h3>质量标准知识库</h3>
-      <p>纺织与服装国家标准 / 行业标准 / 企业标准全集，覆盖 GB 18401、GB·T 29862 等核心合规标准，接入 csres.com 外部检索，月度自动追踪更新。</p>
-      <span class="feat-go">进入 →</span>
-    </a>
+<section class="hero">
+  <span class="hero-badge">供应链中心 · 知识枢纽</span>
+  <h1>锦泓供应链知识库</h1>
+  <p class="hero-sub">面向供应链中心的统一知识沉淀平台——行业洞察、术语规范、运营报告与质量标准，一站直达。</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="https://jovienne0913.github.io/jinhong-quality-standards/" target="_blank" rel="noopener">浏览质量标准库 →</a>
+    <a class="btn-ghost" href="https://jovienne0913.github.io/jinhong-glossary/" target="_blank" rel="noopener">查看术语表</a>
   </div>
+</section>
 
-  <div class="cta-wrap">
-    <a class="cta" id="kbEntry" href="https://jovienne0913.github.io/jinhong-quality-standards/" target="_blank" rel="noopener">前往质量标准库 <span class="arrow">→</span></a>
-    <div class="note">
-      知识库已部署于<b>公司内网</b>（需<b>工号验证</b>），公网通过 GitHub Pages 镜像浏览，门禁处于演示模式——输入任意 103 开头 8 位工号即可查看模块正文。
-    </div>
-  </div>
+<section class="modules">
+  <a class="mod" href="https://jovienne0913.github.io/textile-ai-knowledge/" target="_blank" rel="noopener">
+    <div class="mod-ico">📚</div>
+    <h3>纺织 / 服装 AI 行业洞察</h3>
+    <p>持续追踪行业智能化进程，汇集贝恩、麦肯锡、Gartner、德勤、BCG 五大机构洞察，以及 SHEIN、优衣库、Zara 等头部企业落地案例。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+  <a class="mod" href="https://jovienne0913.github.io/jinhong-glossary/" target="_blank" rel="noopener">
+    <div class="mod-ico">📖</div>
+    <h3>供应链中心 · 术语表</h3>
+    <p>供应链中心专属术语知识库，覆盖组织架构、系统与数据、生产采购、技术质量等 8 大一级分类，统一术语规范。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+  <a class="mod" href="https://jovienne0913.github.io/supply-chain-knowledge-hub/reports/202607.html" target="_blank" rel="noopener">
+    <div class="mod-ico">📊</div>
+    <h3>机会点洞察月度报告</h3>
+    <p>供应链中心月度运营报告，汇集关键指标分析与业务洞察，助力决策复盘与持续改进。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+  <a class="mod" href="https://jovienne0913.github.io/jinhong-quality-standards/" target="_blank" rel="noopener">
+    <div class="mod-ico">📏</div>
+    <h3>质量标准知识库</h3>
+    <p>纺织与服装国家标准 / 行业标准 / 企业标准全集，覆盖 GB 18401、GB·T 29862 等核心合规标准，接入 csres.com 外部检索，月度自动追踪更新。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+  <a class="mod" href="https://jovienne0913.github.io/jinhong-standards/" target="_blank" rel="noopener">
+    <div class="mod-ico">📐</div>
+    <h3>纺织服装标准解读</h3>
+    <p>国家与行业纺织服装标准解读台账，聚焦纤维含量标识、标签合规、数字化标签等新规，赋能品控与合规对标。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+</section>
 
-  <div class="footer">
-    <p>锦泓集团供应链中心 · 知识库平台<br>持续更新中 · 内部使用</p>
-  </div>
-</div>
-<script>
-// 直接链接至各模块的 GitHub Pages（演示门禁模式）
-document.querySelectorAll('a[target="_blank"]').forEach(function(a){
-  a.addEventListener('click', function(){}); // 保留新窗口行为
-});
-</script>
+<footer class="foot">
+  锦泓集团供应链中心 · 知识库平台<br>持续更新中 · 内部使用
+</footer>
 </body>
 </html>
