@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>锦泓集团供应链中心知识库</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --brand-900:#0B2E59;--brand-700:#14489E;--brand-600:#2563EB;--brand-500:#3B82F6;
+    --brand-100:#EFF4FF;
+    --ink-900:#0F172A;--ink-700:#334155;--ink-500:#64748B;--ink-400:#94A3B8;
+    --line:#E6EDF6;--surface:#fff;--bg:#F4F7FC;
+    --r-lg:16px;--r-md:12px;--r-pill:999px;
+    --sh-sm:0 1px 3px rgba(15,23,42,.06);--sh-md:0 10px 28px rgba(15,23,42,.10);--sh-lg:0 20px 50px rgba(15,23,42,.14);
+    --sh-brand:0 12px 30px rgba(37,99,235,.30);
+    --ease:cubic-bezier(.4,0,.2,1);
+  }
+  body{font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink-900);background:var(--bg);min-height:100vh;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;}
+  /* 顶部品牌导航 */
+  .topnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  .topnav-in{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--brand-900);font-size:16px;}
+  .brand-logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--brand-500),var(--brand-700));display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:var(--sh-brand);}
+  .nav-badge{font-size:12px;font-weight:600;color:var(--brand-700);background:var(--brand-100);border:1px solid #D6E4FB;border-radius:var(--r-pill);padding:5px 12px;}
+  /* 英雄区 */
+  .hero{position:relative;max-width:1080px;margin:0 auto;padding:74px 24px 36px;text-align:center;}
+  .hero::before{content:"";position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:720px;height:360px;background:radial-gradient(closest-side,rgba(37,99,235,.10),transparent);z-index:-1;pointer-events:none;}
+  .hero-badge{display:inline-block;font-size:12.5px;font-weight:600;color:var(--brand-700);background:var(--brand-100);border:1px solid #D6E4FB;border-radius:var(--r-pill);padding:6px 14px;margin-bottom:20px;}
+  .hero h1{font-size:38px;font-weight:800;color:var(--brand-900);letter-spacing:-.5px;margin-bottom:16px;}
+  .hero-sub{font-size:16px;color:var(--ink-500);max-width:620px;margin:0 auto 28px;line-height:1.75;}
+  /* 模块网格 */
+  .modules{max-width:1080px;margin:0 auto;padding:12px 24px 44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
+  .mod{position:relative;display:block;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px 26px;overflow:hidden;box-shadow:var(--sh-sm);transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s;}
+  .mod::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--brand-500),var(--brand-700));transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease);}
+  .mod:hover{transform:translateY(-5px);box-shadow:var(--sh-md);border-color:#D6E4FB;}
+  .mod:hover::before{transform:scaleX(1);}
+  .mod:focus-visible{outline:3px solid var(--brand-500);outline-offset:2px;}
+  .mod-ico{width:52px;height:52px;border-radius:14px;background:var(--brand-100);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:16px;transition:background .25s;}
+  .mod:hover .mod-ico{background:linear-gradient(135deg,var(--brand-500),var(--brand-700));}
+  .mod h3{font-size:17px;font-weight:700;color:var(--brand-900);margin-bottom:8px;}
+  .mod p{font-size:13.5px;color:var(--ink-500);line-height:1.65;}
+  .mod-go{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13.5px;font-weight:600;color:var(--brand-600);transition:gap .2s var(--ease);}
+  .mod:hover .mod-go{gap:10px;}
+  /* 页脚 */
+  .foot{text-align:center;padding:36px 24px;border-top:1px solid var(--line);color:var(--ink-400);font-size:12.5px;line-height:1.8;}
+  @media(max-width:480px){.hero{padding-top:48px;}.hero h1{font-size:30px;}.hero-sub{font-size:15px;}}
+/* ===== 供应链知识库门禁 (形态A：后端真门禁；前端仅渲染 UX) ===== */
+:root{
+  --brand-900:#0B2E59; --brand-700:#14489E; --brand-600:#2563EB; --brand-500:#3B82F6;
+  --brand-100:#EFF4FF; --ink-900:#0F172A; --ink-700:#334155; --ink-500:#64748B;
+  --line:#E6EDF6; --danger:#DC2626; --ease:cubic-bezier(.4,0,.2,1);
+}
+/* ===== 供应链知识库门禁 (形态A：后端真门禁；前端仅渲染 UX) ===== */
+:root{
+  --brand-900:#0B2E59; --brand-700:#14489E; --brand-600:#2563EB; --brand-500:#3B82F6;
+  --brand-100:#EFF4FF; --ink-900:#0F172A; --ink-700:#334155; --ink-500:#64748B;
+  --line:#E6EDF6; --danger:#DC2626; --ease:cubic-bezier(.4,0,.2,1);
+}
+.sc-gate-mask{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;background:rgba(15,23,42,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-family:inherit;animation:scFade .25s var(--ease);}
+@keyframes scFade{from{opacity:0}to{opacity:1}}
+.sc-gate-card{width:380px;max-width:92vw;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(11,46,89,.30);position:relative;animation:scPop .28s var(--ease);}
+@keyframes scPop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.sc-gate-card::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#3B82F6,#14489E);}
+.sc-gate-body{padding:32px 28px 26px;text-align:center;}
+.sc-gate-logo{width:56px;height:56px;margin:0 auto 14px;border-radius:14px;background:linear-gradient(135deg,#3B82F6,#14489E);display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 8px 20px rgba(37,99,235,.35);}
+.sc-gate-title{font-size:18px;font-weight:700;color:var(--ink-900);margin-bottom:6px;}
+.sc-gate-sub{font-size:13px;color:var(--ink-500);margin-bottom:18px;line-height:1.5;}
+/* 员工身份核验 */
+.sc-gate-emp{margin:4px auto 6px;max-width:300px;}
+.sc-gate-input{width:100%;padding:13px 14px;border:1.5px solid #CBD5E1;border-radius:12px;font-size:15px;font-family:inherit;margin-bottom:10px;outline:none;transition:border-color .15s,box-shadow .15s;box-sizing:border-box;background:#FBFCFE;text-align:center;letter-spacing:.12em;}
+.sc-gate-input:focus{border-color:#2563EB;box-shadow:0 0 0 4px rgba(37,99,235,.15);}
+.sc-gate-err{font-size:12.5px;color:var(--danger);min-height:18px;margin-top:2px;font-weight:500;}
+.sc-gate-err.shake{animation:scShake .4s var(--ease);}
+@keyframes scShake{10%,90%{transform:translateX(-1px)}20%,80%{transform:translateX(2px)}30%,50%,70%{transform:translateX(-4px)}40%,60%{transform:translateX(4px)}}
+.sc-gate-divider{display:flex;align-items:center;gap:10px;color:var(--ink-400);font-size:12px;margin:8px 0;}
+.sc-gate-divider::before,.sc-gate-divider::after{content:"";flex:1;height:1px;background:#EDF1F8;}
+/* 企业微信扫码（仅在配置企微凭据时显示） */
+.sc-gate-qr{position:relative;width:200px;height:200px;margin:0 auto 14px;border:1px solid #EDF1F8;border-radius:12px;padding:12px;background:#fff;}
+.sc-gate-qr svg{width:100%;height:100%;display:block;border-radius:4px;}
+.sc-gate-qr iframe{width:100%;height:100%;border:0;border-radius:6px;display:block;}
+.sc-gate-qr .qr-mask{position:absolute;inset:12px;display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.93);border-radius:8px;font-size:14px;font-weight:600;color:#334155;}
+.sc-gate-qr.state-scanned .qr-mask,.sc-gate-qr.state-success .qr-mask,.sc-gate-qr.state-expired .qr-mask{display:flex;}
+.sc-gate-qr .qr-badge{font-size:44px;line-height:1;}
+.sc-gate-qr.state-success .qr-badge{color:#10B981;}
+.sc-gate-qr.state-scanned .qr-badge{color:#2563EB;}
+.sc-gate-qr.state-expired .qr-badge{color:#F59E0B;}
+.sc-gate-qr .qr-fallback{position:absolute;left:0;right:0;bottom:-22px;font-size:11px;text-align:center;}
+.sc-gate-qr .qr-fallback a{color:#2563EB;text-decoration:none;}
+.sc-ent-card{display:none;align-items:center;gap:12px;text-align:left;margin:2px auto 16px;padding:12px 14px;border:1px solid #BFD7FB;border-radius:12px;background:#EFF4FF;max-width:290px;}
+.sc-gate-qr.state-success ~ .sc-ent-card{display:flex;}
+.sc-ent-ico{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#3B82F6,#14489E);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.sc-ent-info .t{font-size:11px;color:var(--ink-500);}
+.sc-ent-info .n{font-size:15px;font-weight:700;color:var(--brand-900);line-height:1.3;}
+.sc-ent-info .v{font-size:12px;color:#10B981;font-weight:600;}
+.sc-gate-hint{font-size:13px;color:var(--ink-500);margin-bottom:14px;min-height:20px;}
+.sc-gate-hint b{color:var(--brand-600);}
+.sc-gate-btn{display:block;width:100%;padding:13px;border:none;border-radius:12px;cursor:pointer;background:linear-gradient(135deg,#3B82F6,#14489E);color:#fff;font-size:15px;font-weight:600;font-family:inherit;transition:transform .15s,box-shadow .15s;}
+.sc-gate-btn:hover:not([disabled]){transform:translateY(-1px);box-shadow:0 10px 24px rgba(37,99,235,.4);}
+.sc-gate-btn:focus-visible{outline:3px solid #fff;outline-offset:2px;}
+.sc-gate-btn[disabled]{opacity:.6;cursor:not-allowed;}
+.sc-gate-demo{display:none;margin-top:14px;font-size:12px;color:var(--ink-400);}
+.sc-gate-demo a{color:#2563EB;cursor:pointer;text-decoration:none;}
+.sc-gate-demo a:hover{text-decoration:underline;}
+.sc-gate-foot{font-size:11px;color:#CBD5E1;margin-top:8px;}
+@media (max-width:480px){.sc-gate-card{width:100%;max-width:100vw;height:100vh;border-radius:0;display:flex;flex-direction:column;justify-content:center;}}
+@media (prefers-reduced-motion:reduce){.sc-gate-mask{animation:none;}.sc-gate-card{animation:none;}.sc-gate-err.shake{animation:none;}}
+</style>
+</head>
+<body>
+<header class="topnav">
+  <div class="topnav-in">
+    <a class="brand" href="/"><span class="brand-logo">📚</span> 锦泓供应链知识库</a>
+    <span class="nav-badge">内部平台</span>
+  </div>
+</header>
+
+<section class="hero">
+  <span class="hero-badge">供应链中心 · 知识枢纽</span>
+  <h1>锦泓供应链知识库</h1>
+  <p class="hero-sub">面向供应链中心的统一知识沉淀平台——行业洞察、术语规范、运营报告与质量标准，一站直达。</p>
+</section>
+
+<section class="modules">
+  <a class="mod" href="/insight">
+    <div class="mod-ico">📚</div>
+    <h3>纺织 / 服装 AI 行业洞察</h3>
+    <p>持续追踪行业智能化进程，汇集贝恩、麦肯锡、Gartner、德勤、BCG 五大机构洞察，以及 SHEIN、优衣库、Zara 等头部企业落地案例。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+  <a class="mod" href="/glossary">
+    <div class="mod-ico">📖</div>
+    <h3>供应链中心 · 术语表</h3>
+    <p>供应链中心专属术语知识库，覆盖组织架构、系统与数据、生产采购、技术质量等 8 大一级分类，统一术语规范。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+  <a class="mod" href="/report">
+    <div class="mod-ico">📊</div>
+    <h3>机会点洞察月度报告</h3>
+    <p>供应链中心月度运营报告，汇集关键指标分析与业务洞察，助力决策复盘与持续改进。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+  <a class="mod" href="/standards">
+    <div class="mod-ico">📐</div>
+    <h3>纺织服装标准</h3>
+    <p>国家与行业纺织服装标准解读台账，聚焦纤维含量标识、标签合规、数字化标签等新规，赋能品控与合规对标。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+  <a class="mod" href="/quality-standards">
+    <div class="mod-ico">📏</div>
+    <h3>质量标准知识库</h3>
+    <p>纺织与服装国家 / 行业 / 企业标准全集，覆盖 GB 18401、GB·T 29862、FZ/T 81007 及锦泓企标内控，自动追踪标准动态。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+  <a class="mod" href="/exhibitions?v=2">
+    <div class="mod-ico">🗓️</div>
+    <h3>纺织服装展会信息库</h3>
+    <p>2026 全球纺织服装展会日历，覆盖 Intertextile / CHIC 全国联展、柯桥纺博会与南美/中东/亚太出海窗口，含档期、展馆、展品范围与报名指引。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+  <a class="mod" href="/material-prices?v=4">
+    <div class="mod-ico">💱</div>
+    <h3>物料价格趋势库</h3>
+    <p>盛泽化纤布匹市场行情，化纤面料指数、坯布库存与开机率监测，60+ 坯布/面料报价可检索可排序，支撑采购成本研判。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+</section>
+
+<footer class="foot">
+  锦泓集团供应链中心 · 知识库平台<br>持续更新中 · 内部使用
+</footer>
+
+<div class="sc-gate-mask" id="scGate" role="dialog" aria-modal="true" aria-label="身份核验">
+  <div class="sc-gate-card">
+    <div class="sc-gate-body">
+      <div class="sc-gate-logo">🔐</div>
+      <div class="sc-gate-title">锦泓供应链知识库 · 身份核验</div>
+
+      <div class="sc-gate-emp" id="scGateEmp">
+        <input type="text" id="scGateEmpId" class="sc-gate-input" placeholder="工号" inputmode="numeric" maxlength="8" autocomplete="off" />
+        <button class="sc-gate-btn" id="scGateEmpBtn">验证进入</button>
+        <div class="sc-gate-err" id="scGateErr"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== 供应链知识库门禁 (形态A：后端真门禁；前端仅渲染 UX) =====
+// 主形态：8 位工号(103 开头) 核验，后端记载
+// 备选：配置企微凭据扫码 / 演示模式(无后端预览)
+(function(){
+  function $(id){return document.getElementById(id);}
+  var GATE = window.KB_GATE || {wecom:false, code:false, employee:true, mock:true};
+
+  function removeMask(){
+    var m=$('scGate');if(!m)return;
+    m.style.transition='opacity .25s';m.style.opacity='0';
+    setTimeout(function(){
+      if(m.parentNode)m.parentNode.removeChild(m);
+      if(m.getAttribute('data-shell'))window.location.reload();
+    },250);
+  }
+  function authed(){removeMask();}
+  function showErr(msg){var e=$('scGateErr');if(e){e.textContent=msg||'';if(msg){e.classList.remove('shake');void e.offsetWidth;e.classList.add('shake');}}}
+  function setHint(html){var h=$('scGateHint');if(h)h.innerHTML=html;}
+  function hideWecom(){var qr=$('scGateQr');if(qr)qr.style.display='none';var d=$('scGateDivider');if(d)d.style.display='none';}
+  function focusCard(){try{var f=$('scGate').querySelector('.sc-gate-card');if(f){f.setAttribute('tabindex','-1');f.focus();}}catch(e){}}
+
+  // 工号核验
+  function startEmp(demo){
+    hideWecom();
+    var idI=$('scGateEmpId'), btn=$('scGateEmpBtn');
+    if(!idI||!btn)return;
+    function submit(){
+      var id=idI.value.trim();
+      if(!/^103\d{5}$/.test(id)){showErr('工号无效');return;}
+      if(demo){ showErr(''); authed(); return; }
+      showErr(''); btn.disabled=true; btn.textContent='验证中…';
+      fetch('/api/auth/employee',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({emp_id:id}),credentials:'same-origin'})
+        .then(function(r){return r.json().then(function(d){return {ok:r.ok&&d.ok,d:d};});})
+        .then(function(res){
+          if(res.ok){ authed(); }
+          else { showErr((res.d&&res.d.msg)||'验证失败'); btn.disabled=false; btn.textContent='验证进入'; }
+        })
+        .catch(function(){ showErr('网络异常，无法连接门禁服务'); btn.disabled=false; btn.textContent='验证进入'; });
+    }
+    btn.onclick=submit;
+    idI.addEventListener('keydown',function(e){if(e.key==='Enter')submit();});
+    idI.focus();
+  }
+
+  // 演示模式（无后端 / ?demo=1）
+  function showDemo(){
+    var d=$('scGateDemo');if(d)d.style.display='block';
+    hideWecom();
+    var de=$('scGateDemoEnter');
+    if(de)de.onclick=function(){
+      var id=$('scGateEmpId');
+      if(id&&/^103\d{5}$/.test(id.value.trim())){ showErr(''); authed(); }
+      else showErr('工号无效');
+    };
+    startEmp(true);
+  }
+
+  // 企业微信扫码（仅在配置企微凭据时）
+  function qrSVG(){
+    var N=25, cell=100/N, parts=['<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">','<rect width="100" height="100" fill="#fff"/>'];
+    var seed=20260730;
+    function rnd(){seed=(seed*1103515245+12345)&0x7fffffff;return seed/0x7fffffff;}
+    function finder(x,y){
+      parts.push('<rect x="'+(x*cell)+'" y="'+(y*cell)+'" width="'+(7*cell)+'" height="'+(7*cell)+'" fill="#1f2937"/>');
+      parts.push('<rect x="'+((x+1)*cell)+'" y="'+((y+1)*cell)+'" width="'+(5*cell)+'" height="'+(5*cell)+'" fill="#fff"/>');
+      parts.push('<rect x="'+((x+2)*cell)+'" y="'+((y+2)*cell)+'" width="'+(3*cell)+'" height="'+(3*cell)+'" fill="#1f2937"/>');
+    }
+    for(var y=0;y<N;y++){for(var x=0;x<N;x++){
+      if((x<8&&y<8)||(x>N-9&&y<8)||(x<8&&y>N-9))continue;
+      if(rnd()>0.55){parts.push('<rect x="'+(x*cell)+'" y="'+(y*cell)+'" width="'+cell+'" height="'+cell+'" fill="#1f2937"/>');}
+    }}
+    finder(0,0);finder(N-7,0);finder(0,N-7);
+    parts.push('</svg>');return parts.join('');
+  }
+  function setQRState(s,badge,txt){
+    var qr=$('scGateQr');if(!qr)return;
+    qr.className='sc-gate-qr state-'+s;
+    var b=$('scGateBadge'),t=$('scGateMaskTxt');
+    if(b)b.textContent=badge;if(t)t.textContent=txt;
+  }
+  function poll(ticket){
+    var iv=setInterval(function(){
+      fetch('/api/auth/wecom/status?ticket='+encodeURIComponent(ticket),{credentials:'same-origin'})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(d.state==='scanned'){setQRState('scanned','✓','已在手机端扫描，请确认');setHint('已扫描 · 请在手机端点击<b>确认</b>');}
+        else if(d.state==='expired'){clearInterval(iv);setQRState('expired','!','二维码已过期');}
+        else if(d.state==='success'){clearInterval(iv);setHint('验证通过 · 正在进入…');authed();}
+      }).catch(function(){});
+    },2000);
+  }
+  function startWecom(ticket,loginUrl){
+    var qr=$('scGateQr');if(!qr)return;
+    qr.style.display='block';
+    qr.innerHTML='<iframe src="'+loginUrl+'" title="企业微信扫码登录" style="width:100%;height:100%;border:0;border-radius:6px;"></iframe>'
+      +'<div class="qr-fallback"><a href="'+loginUrl+'" target="_blank" rel="noopener">无法显示？点此在新窗口扫码</a></div>';
+    setHint('请使用企业微信 App 扫描上方二维码');
+    poll(ticket);
+  }
+
+  function isStaticHost(){
+    var h=location.hostname;
+    return h.indexOf('github.io')>=0 || h==='localhost' || h==='127.0.0.1' || h==='0.0.0.0';
+  }
+
+  function init(){
+    var mask=$('scGate');if(!mask)return;
+    if(/[?&]demo=1/.test(location.search)||isStaticHost()){showDemo();focusCard();return;}
+    fetch('/api/auth/me',{credentials:'same-origin'})
+      .then(function(r){return r.status===200?r.json().then(function(d){return{ok:true,d:d};}):{ok:false};})
+      .then(function(res){
+        if(res.ok){authed();return;}
+        return fetch('/api/auth/config',{credentials:'same-origin'})
+          .then(function(r){return r.json();})
+          .then(function(cfg){
+            GATE=cfg||GATE;
+            if(cfg&&cfg.employee){ startEmp(false); }
+            else if(cfg&&cfg.wecom){ fetch('/api/auth/wecom/qrcode',{credentials:'same-origin'}).then(function(r){return r.json();}).then(function(d){startWecom(d.ticket,d.login_url);}).catch(function(){showDemo();}); }
+            else { showDemo(); }
+          })
+          .catch(function(){ showDemo(); });
+      })
+      .catch(function(){ showDemo(); });
+    focusCard();
+  }
+  if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);
+})();
+</script>
+</body>
+</html>
