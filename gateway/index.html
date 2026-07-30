@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>锦泓集团供应链中心知识库</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --brand-900:#0B2E59;--brand-700:#14489E;--brand-600:#2563EB;--brand-500:#3B82F6;
+    --brand-100:#EFF4FF;
+    --ink-900:#0F172A;--ink-700:#334155;--ink-500:#64748B;--ink-400:#94A3B8;
+    --line:#E6EDF6;--surface:#fff;--bg:#F4F7FC;
+    --r-lg:16px;--r-md:12px;--r-pill:999px;
+    --sh-sm:0 1px 3px rgba(15,23,42,.06);--sh-md:0 10px 28px rgba(15,23,42,.10);--sh-lg:0 20px 50px rgba(15,23,42,.14);
+    --sh-brand:0 12px 30px rgba(37,99,235,.30);
+    --ease:cubic-bezier(.4,0,.2,1);
+  }
+  body{font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink-900);background:var(--bg);min-height:100vh;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;}
+  /* 顶部品牌导航 */
+  .topnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  .topnav-in{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--brand-900);font-size:16px;}
+  .brand-logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--brand-500),var(--brand-700));display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:var(--sh-brand);}
+  .nav-badge{font-size:12px;font-weight:600;color:var(--brand-700);background:var(--brand-100);border:1px solid #D6E4FB;border-radius:var(--r-pill);padding:5px 12px;}
+  /* 英雄区 */
+  .hero{position:relative;max-width:1080px;margin:0 auto;padding:74px 24px 36px;text-align:center;}
+  .hero::before{content:"";position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:720px;height:360px;background:radial-gradient(closest-side,rgba(37,99,235,.10),transparent);z-index:-1;pointer-events:none;}
+  .hero-badge{display:inline-block;font-size:12.5px;font-weight:600;color:var(--brand-700);background:var(--brand-100);border:1px solid #D6E4FB;border-radius:var(--r-pill);padding:6px 14px;margin-bottom:20px;}
+  .hero h1{font-size:38px;font-weight:800;color:var(--brand-900);letter-spacing:-.5px;margin-bottom:16px;}
+  .hero-sub{font-size:16px;color:var(--ink-500);max-width:620px;margin:0 auto 28px;line-height:1.75;}
+  /* 模块网格 */
+  .modules{max-width:1080px;margin:0 auto;padding:12px 24px 44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
+  .mod{position:relative;display:block;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px 26px;overflow:hidden;box-shadow:var(--sh-sm);transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s;}
+  .mod::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--brand-500),var(--brand-700));transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease);}
+  .mod:hover{transform:translateY(-5px);box-shadow:var(--sh-md);border-color:#D6E4FB;}
+  .mod:hover::before{transform:scaleX(1);}
+  .mod:focus-visible{outline:3px solid var(--brand-500);outline-offset:2px;}
+  .mod-ico{width:52px;height:52px;border-radius:14px;background:var(--brand-100);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:16px;transition:background .25s;}
+  .mod:hover .mod-ico{background:linear-gradient(135deg,var(--brand-500),var(--brand-700));}
+  .mod h3{font-size:17px;font-weight:700;color:var(--brand-900);margin-bottom:8px;}
+  .mod p{font-size:13.5px;color:var(--ink-500);line-height:1.65;}
+  .mod-go{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13.5px;font-weight:600;color:var(--brand-600);transition:gap .2s var(--ease);}
+  .mod:hover .mod-go{gap:10px;}
+  /* 页脚 */
+  .foot{text-align:center;padding:36px 24px;border-top:1px solid var(--line);color:var(--ink-400);font-size:12.5px;line-height:1.8;}
+  @media(max-width:480px){.hero{padding-top:48px;}.hero h1{font-size:30px;}.hero-sub{font-size:15px;}}
+</style>
+</head>
+<body>
+<header class="topnav">
+  <div class="topnav-in">
+    <a class="brand" href="https://jovienne0913.github.io/supply-chain-knowledge-hub/"><span class="brand-logo">📚</span> 锦泓供应链知识库</a>
+    <span class="nav-badge">内部平台</span>
+  </div>
+</header>
+
+<section class="hero">
+  <span class="hero-badge">供应链中心 · 知识枢纽</span>
+  <h1>锦泓供应链知识库</h1>
+  <p class="hero-sub">面向供应链中心的统一知识沉淀平台——行业洞察、术语规范、运营报告与质量标准，一站直达。</p>
+</section>
+
+<section class="modules">
+  <a class="mod" href="https://jovienne0913.github.io/textile-ai-knowledge/" target="_blank" rel="noopener">
+    <div class="mod-ico">📚</div>
+    <h3>纺织 / 服装 AI 行业洞察</h3>
+    <p>持续追踪行业智能化进程，汇集贝恩、麦肯锡、Gartner、德勤、BCG 五大机构洞察，以及 SHEIN、优衣库、Zara 等头部企业落地案例。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+  <a class="mod" href="https://jovienne0913.github.io/jinhong-glossary/" target="_blank" rel="noopener">
+    <div class="mod-ico">📖</div>
+    <h3>供应链中心 · 术语表</h3>
+    <p>供应链中心专属术语知识库，覆盖组织架构、系统与数据、生产采购、技术质量等 8 大一级分类，统一术语规范。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+  <a class="mod" href="https://jovienne0913.github.io/supply-chain-knowledge-hub/reports/202607.html" target="_blank" rel="noopener">
+    <div class="mod-ico">📊</div>
+    <h3>机会点洞察月度报告</h3>
+    <p>供应链中心月度运营报告，汇集关键指标分析与业务洞察，助力决策复盘与持续改进。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+  <a class="mod" href="https://jovienne0913.github.io/jinhong-quality-standards/" target="_blank" rel="noopener">
+    <div class="mod-ico">📏</div>
+    <h3>质量标准知识库</h3>
+    <p>纺织与服装国家标准 / 行业标准 / 企业标准全集，覆盖 GB 18401、GB·T 29862 等核心合规标准，接入 csres.com 外部检索，月度自动追踪更新。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+  <a class="mod" href="https://jovienne0913.github.io/jinhong-standards/" target="_blank" rel="noopener">
+    <div class="mod-ico">📐</div>
+    <h3>纺织服装标准解读</h3>
+    <p>国家与行业纺织服装标准解读台账，聚焦纤维含量标识、标签合规、数字化标签等新规，赋能品控与合规对标。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+  <a class="mod" href="https://jovienne0913.github.io/jinhong-exhibitions/?v=2" target="_blank" rel="noopener">
+    <div class="mod-ico">🗓️</div>
+    <h3>纺织服装展会信息库</h3>
+    <p>2026 全球纺织服装展会日历，覆盖 Intertextile / CHIC 全国联展、柯桥纺博会与南美/中东/亚太出海窗口，含档期、展馆、展品范围与报名指引。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+  <a class="mod" href="https://jovienne0913.github.io/jinhong-material-prices/?v=3" target="_blank" rel="noopener">
+    <div class="mod-ico">💱</div>
+    <h3>物料价格趋势库</h3>
+    <p>盛泽化纤布匹市场行情，化纤面料指数、坯布库存与开机率监测，60+ 坯布/面料报价可检索可排序，支撑采购成本研判。</p>
+    <span class="mod-go">进入 →</span>
+  </a>
+</section>
+
+<footer class="foot">
+  锦泓集团供应链中心 · 知识库平台<br>持续更新中 · 内部使用
+</footer>
+</body>
+</html>
