@@ -46,6 +46,14 @@
   .feat-ico { font-size: 32px; margin-bottom: 14px; line-height: 1; }
   .feat h3 { font-size: 17px; font-weight: 600; color: #0c447c; margin-bottom: 8px; }
   .feat p { font-size: 13.5px; color: #64748b; line-height: 1.65; }
+  .feat.feat-link {
+    text-decoration: none; color: inherit; display: block;
+  }
+  .feat-go {
+    display: inline-block; margin-top: 14px; font-size: 13.5px;
+    color: #1d4ed8; font-weight: 600; transition: transform .2s ease;
+  }
+  .feat.feat-link:hover .feat-go { transform: translateX(4px); }
   .cta-wrap { text-align: center; }
   .cta {
     display: inline-flex; align-items: center; gap: 10px;
@@ -82,32 +90,36 @@
   </div>
 
   <div class="features">
-    <div class="feat">
+    <a class="feat feat-link" href="https://jovienne0913.github.io/textile-ai-knowledge/" target="_blank" rel="noopener">
       <div class="feat-ico">📚</div>
       <h3>纺织 / 服装 AI 行业洞察</h3>
       <p>持续追踪行业智能化进程，汇集贝恩、麦肯锡、Gartner、德勤、BCG 五大机构洞察，以及 SHEIN、优衣库、Zara 等头部企业落地案例。</p>
-    </div>
-    <div class="feat">
+      <span class="feat-go">进入 →</span>
+    </a>
+    <a class="feat feat-link" href="https://jovienne0913.github.io/jinhong-glossary/" target="_blank" rel="noopener">
       <div class="feat-ico">📖</div>
       <h3>供应链中心 · 术语表</h3>
       <p>供应链中心专属术语知识库，覆盖组织架构、系统与数据、生产采购、技术质量等 8 大一级分类，统一术语规范。</p>
-    </div>
-    <div class="feat">
+      <span class="feat-go">进入 →</span>
+    </a>
+    <a class="feat feat-link" href="https://jovienne0913.github.io/supply-chain-knowledge-hub/reports/202607.html" target="_blank" rel="noopener">
       <div class="feat-ico">📊</div>
       <h3>机会点洞察月度报告</h3>
       <p>供应链中心月度运营报告，汇集关键指标分析与业务洞察，助力决策复盘与持续改进。</p>
-    </div>
-    <div class="feat">
+      <span class="feat-go">进入 →</span>
+    </a>
+    <a class="feat feat-link" href="https://jovienne0913.github.io/jinhong-quality-standards/" target="_blank" rel="noopener">
       <div class="feat-ico">📏</div>
       <h3>质量标准知识库</h3>
       <p>纺织与服装国家标准 / 行业标准 / 企业标准全集，覆盖 GB 18401、GB·T 29862 等核心合规标准，接入 csres.com 外部检索，月度自动追踪更新。</p>
-    </div>
+      <span class="feat-go">进入 →</span>
+    </a>
   </div>
 
   <div class="cta-wrap">
-    <a class="cta" id="kbEntry" href="#">前往内网知识库 <span class="arrow">→</span></a>
+    <a class="cta" id="kbEntry" href="https://jovienne0913.github.io/jinhong-quality-standards/" target="_blank" rel="noopener">前往质量标准库 <span class="arrow">→</span></a>
     <div class="note">
-      知识库部署于<b>公司内网</b>，需<b>工号验证</b>后方可进入，仅限供应链中心员工访问。
+      知识库已部署于<b>公司内网</b>（需<b>工号验证</b>），公网通过 GitHub Pages 镜像浏览，门禁处于演示模式——输入任意 103 开头 8 位工号即可查看模块正文。
     </div>
   </div>
 
@@ -116,21 +128,10 @@
   </div>
 </div>
 <script>
-// ===== 引导页入口地址配置 =====
-// 本地预览（127.0.0.1 / localhost）自动指向同域后端根路径（已含门禁）；
-// 部署到 GitHub Pages 时，把 KB_INTERNAL_BASE 改成真实内网地址即可。
-const KB_INTERNAL_BASE = "https://REPLACE-WITH-INTRANET-ADDRESS";
-(function(){
-  var isLocal = ['127.0.0.1','localhost','0.0.0.0'].indexOf(location.hostname) >= 0;
-  var url = isLocal ? '/' : KB_INTERNAL_BASE;
-  var a = document.getElementById('kbEntry');
-  if (a) {
-    a.setAttribute('href', url);
-    if (!isLocal && /^https?:\/\//.test(url) && url.indexOf('REPLACE') >= 0) {
-      a.addEventListener('click', function(e){ e.preventDefault(); alert('请先在引导页脚本中配置 KB_INTERNAL_BASE 为真实内网地址'); });
-    }
-  }
-})();
+// 直接链接至各模块的 GitHub Pages（演示门禁模式）
+document.querySelectorAll('a[target="_blank"]').forEach(function(a){
+  a.addEventListener('click', function(){}); // 保留新窗口行为
+});
 </script>
 </body>
 </html>
