@@ -7,7 +7,24 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;background:#fff;color:#1e293b;line-height:1.7;font-size:15px}
-.page{max-width:900px;margin:0 auto;padding:40px 24px 60px}
+.page{max-width:1400px;margin:0 auto;padding:40px 24px 60px}
+.page-layout{display:flex;gap:1.5rem;align-items:flex-start}
+.side-nav{position:sticky;top:70px;width:170px;flex-shrink:0;background:#fff;border:1px solid #e6edf6;border-radius:14px;padding:12px 10px;box-shadow:0 1px 3px rgba(15,23,42,.06);margin-top:24px}
+.side-nav-title{font-size:12px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;padding:0 8px 8px;border-bottom:1px solid #e6edf6;margin-bottom:8px}
+.side-nav a{display:block;font-size:13px;font-weight:600;color:#334155;padding:8px 10px;border-radius:8px;margin-bottom:3px;transition:background .15s,color .15s;text-decoration:none}
+.side-nav a:hover{background:#eff4ff;color:#1d4ed8;text-decoration:none}
+.side-nav a.active{background:#2563eb;color:#fff}
+.main-content{flex:1;min-width:0;max-width:980px}
+.kb-topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #e6edf6}
+.kb-topbar-in{max-width:1400px;margin:0 auto;padding:10px 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.kb-nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.kb-nav a{font-size:13px;font-weight:600;color:#334155;padding:6px 12px;border-radius:999px;transition:background .15s,color .15s;text-decoration:none}
+.kb-nav a:hover{background:#eff4ff;color:#1d4ed8;text-decoration:none}
+.kb-nav a.active{background:#2563eb;color:#fff}
+.kb-status{font-size:12px;font-weight:600;color:#1d4ed8;background:#eff4ff;border:1px solid #d6e4fb;border-radius:999px;padding:5px 12px}
+.kb-home{display:flex;align-items:center;gap:9px;font-weight:700;color:#1e3a8a;font-size:15px;text-decoration:none}
+.kb-home:hover{text-decoration:none;opacity:.8}
+.kb-home-logo{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#2563eb,#1e3a8a);display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 6px 16px rgba(37,99,235,.3);color:#fff}
 h1{font-size:28px;font-weight:700;color:#1e3a8a;letter-spacing:1px}
 h2{font-size:20px;font-weight:700;color:#1e3a8a;margin-bottom:20px;padding-left:14px;border-left:4px solid #2563eb;line-height:1.4}
 h3{font-size:17px;font-weight:600;color:#1e3a8a;margin-bottom:12px}
@@ -220,12 +237,55 @@ td li{margin-bottom:3px}
 @media (prefers-reduced-motion:reduce){.sc-gate-mask{transition:none;}}
 
 
+
+  .kb-topbar-in { max-width: 1400px; margin: 0 auto; padding: 10px 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .kb-nav { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .kb-nav a { font-size: 13px; font-weight: 600; color: var(--ink-700); padding: 6px 12px; border-radius: var(--r-pill); transition: background .15s, color .15s; }
+  .kb-nav a:hover { background: var(--brand-100); color: var(--brand-700); text-decoration: none; }
+  .kb-nav a.active { background: var(--brand-500); color: #fff; }
+  .container { max-width: 1400px; margin: 0 auto; padding: 0 1.5rem; }
+  /* 左侧子页导航 */
+  .page-layout { display: flex; gap: 1.5rem; align-items: flex-start; }
+  .side-nav { position: sticky; top: 70px; width: 170px; flex-shrink: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); padding: 12px 10px; box-shadow: var(--sh-sm); }
+  .side-nav-title { font-size: 12px; font-weight: 700; color: var(--ink-400); text-transform: uppercase; letter-spacing: .5px; padding: 0 8px 8px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+  .side-nav a { display: block; font-size: 13px; font-weight: 600; color: var(--ink-700); padding: 8px 10px; border-radius: 8px; margin-bottom: 3px; transition: background .15s, color .15s; }
+  .side-nav a:hover { background: var(--brand-100); color: var(--brand-700); text-decoration: none; }
+  .side-nav a.active { background: var(--brand-500); color: #fff; }
+  .main-content { flex: 1; min-width: 0; }
+
 </style>
 </head>
 <body>
-<a href="https://jovienne0913.github.io/supply-chain-knowledge-hub/" class="back-to-portal" id="backToPortal"><span class="arrow">←</span> 返回门户页</a>
+<header class="kb-topbar">
+  <div class="kb-topbar-in">
+    <a class="kb-home" href="https://jovienne0913.github.io/supply-chain-knowledge-hub/"><span class="kb-home-logo">📊</span> 机会点洞察月报</a>
+    <nav class="kb-nav">
+      <a href="https://jovienne0913.github.io/supply-chain-knowledge-hub/">门户</a>
+      <a href="https://jovienne0913.github.io/jinhong-material-prices/">物料价格</a>
+      <a href="https://jovienne0913.github.io/jinhong-exhibitions/">展会</a>
+      <a href="https://jovienne0913.github.io/jinhong-glossary/">术语库</a>
+      <a class="active" href="https://jovienne0913.github.io/supply-chain-knowledge-hub/reports/202607.html">月报</a>
+      <a href="https://jovienne0913.github.io/jinhong-quality-standards/">质量标准</a>
+      <a href="https://jovienne0913.github.io/jinhong-standards/">标准解读</a>
+      <a href="https://jovienne0913.github.io/textile-ai-knowledge/">AI洞察</a>
+    </nav>
+    <span class="kb-status">🔒 工号验证 · 内部</span>
+  </div>
+</header>
 <div class="page">
-
+<div class="page-layout">
+  <aside class="side-nav">
+    <div class="side-nav-title">供应链知识库</div>
+    <a href="https://jovienne0913.github.io/supply-chain-knowledge-hub/">🏠 门户</a>
+    <a href="https://jovienne0913.github.io/jinhong-material-prices/">💱 物料价格</a>
+    <a href="https://jovienne0913.github.io/jinhong-exhibitions/">🗓️ 展会</a>
+    <a href="https://jovienne0913.github.io/jinhong-glossary/">📖 术语库</a>
+    <a class="active" href="https://jovienne0913.github.io/supply-chain-knowledge-hub/reports/202607.html">📊 月报</a>
+    <a href="https://jovienne0913.github.io/jinhong-quality-standards/">📏 质量标准</a>
+    <a href="https://jovienne0913.github.io/jinhong-standards/">📐 标准解读</a>
+    <a href="https://jovienne0913.github.io/textile-ai-knowledge/">🤖 AI洞察</a>
+  </aside>
+  <main class="main-content">
 <!-- HEADER -->
 <div class="header">
   <h1>供应链中心月度机会点洞察</h1>
@@ -1289,6 +1349,8 @@ td li{margin-bottom:3px}
   <div class="f-line3">本报告仅供内部参考，数据与观点来源于公开信息</div>
 </div>
 
+</main>
+</div>
 </div>
 <script>
 if (location.hostname !== 'jovienne0913.github.io') {
