@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-07-25",
+  "last_updated": "2026-08-08",
   "repos": {
     "textile-ai-knowledge": {
       "name": "纺织服装行业 AI 与数字化转型",
       "url": "https://jovienne0913.github.io/textile-ai-knowledge/",
-      "cumulative_views": 0,
-      "cumulative_uniques": 0,
+      "cumulative_views": 1,
+      "cumulative_uniques": 1,
       "snapshots": [
         {
           "date": "2026-07-25",
@@ -83,14 +83,91 @@
               "uniques": 0
             }
           ]
+        },
+        {
+          "date": "2026-08-08",
+          "count_14d": 1,
+          "uniques_14d": 1,
+          "daily_views": [
+            {
+              "timestamp": "2026-07-24T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-25T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-26T00:00:00Z",
+              "count": 1,
+              "uniques": 1
+            },
+            {
+              "timestamp": "2026-07-27T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-28T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-29T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-30T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-31T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-08-01T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-08-02T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-08-03T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-08-04T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-08-05T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-08-06T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            }
+          ]
         }
       ]
     },
     "jinhong-glossary": {
       "name": "锦泓集团供应链中心术语库",
       "url": "https://jovienne0913.github.io/jinhong-glossary/",
-      "cumulative_views": 0,
-      "cumulative_uniques": 0,
+      "cumulative_views": 1,
+      "cumulative_uniques": 1,
       "snapshots": [
         {
           "date": "2026-07-25",
@@ -168,14 +245,91 @@
               "uniques": 0
             }
           ]
+        },
+        {
+          "date": "2026-08-08",
+          "count_14d": 1,
+          "uniques_14d": 1,
+          "daily_views": [
+            {
+              "timestamp": "2026-07-24T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-25T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-26T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-27T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-28T00:00:00Z",
+              "count": 1,
+              "uniques": 1
+            },
+            {
+              "timestamp": "2026-07-29T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-30T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-31T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-08-01T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-08-02T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-08-03T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-08-04T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-08-05T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-08-06T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            }
+          ]
         }
       ]
     },
     "supply-chain-knowledge-hub": {
       "name": "供应链知识库导航",
       "url": "https://jovienne0913.github.io/supply-chain-knowledge-hub/",
-      "cumulative_views": 0,
-      "cumulative_uniques": 0,
+      "cumulative_views": 2,
+      "cumulative_uniques": 1,
       "snapshots": [
         {
           "date": "2026-07-25",
@@ -249,6 +403,83 @@
             },
             {
               "timestamp": "2026-07-25T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            }
+          ]
+        },
+        {
+          "date": "2026-08-08",
+          "count_14d": 2,
+          "uniques_14d": 1,
+          "daily_views": [
+            {
+              "timestamp": "2026-07-24T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-25T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-26T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-27T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-28T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-29T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-30T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-07-31T00:00:00Z",
+              "count": 2,
+              "uniques": 1
+            },
+            {
+              "timestamp": "2026-08-01T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-08-02T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-08-03T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-08-04T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-08-05T00:00:00Z",
+              "count": 0,
+              "uniques": 0
+            },
+            {
+              "timestamp": "2026-08-06T00:00:00Z",
               "count": 0,
               "uniques": 0
             }
